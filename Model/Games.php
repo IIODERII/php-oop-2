@@ -1,6 +1,5 @@
 <?php
 
-include __DIR__ . "/Genre.php";
 include __DIR__ . "/Product.php";
 class Game extends Product
 {
