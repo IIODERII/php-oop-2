@@ -1,7 +1,8 @@
 <?php
 
 include __DIR__ . "/Genre.php";
-class Movie
+include __DIR__ . "/Product.php";
+class Movie extends Product
 {
     private int $id;
     private string $title;
@@ -13,7 +14,7 @@ class Movie
     public array $generi;
     private string $lang;
 
-    function __construct($id, $title, $overview, $vote_average, $poster_path, $original_language, $generi, $lang)
+    function __construct($id, $title, $overview, $vote_average, $poster_path, $original_language, $generi, $lang, $cost, $quantity)
     {
         $this->id = $id;
         $this->title = $title;
@@ -29,6 +30,8 @@ class Movie
         } else {
             $this->lang = $lang;
         }
+        $this->cost = $cost;
+        $this->quantity = $quantity;
     }
 
     private function flagPath()
@@ -61,6 +64,8 @@ class Movie
         $generi = $this->generi;
         $lang = $this->flagPath();
         $langName = $this->lang;
+        $cost = $this->cost;
+        $quantity = $this->quantity;
         include __DIR__ . "/../Views/card.php";
     }
 }
@@ -80,6 +85,6 @@ foreach ($movieArray as $movie) {
             $setGenres[] = $currGen;
         }
     }
-    $movies[] = new Movie($movie['id'], $movie['title'], $movie['overview'], $movie['vote_average'], $movie['poster_path'], $movie['original_language'], $setGenres, $movie['original_language']);
+    $movies[] = new Movie($movie['id'], $movie['title'], $movie['overview'], $movie['vote_average'], $movie['poster_path'], $movie['original_language'], $setGenres, $movie['original_language'], $movie['cost'], rand(0, 150));
 }
 ?>

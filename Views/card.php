@@ -27,7 +27,19 @@
                     <img src="<?= $lang ?>" alt="<?= $langName ?>" class='w-100'>
                 </div>
             </div>
+            <div class='d-flex justify-content-between align-items-center pt-3'>
+                <span class="badge text-bg-success">
+                    $
+                    <?= number_format($cost, 2, '. ', ''); ?>
+                </span>
+
+                <span class="badge text-bg-danger">
+                    <?= $quantity ?> in stock
+                </span>
+            </div>
 
         </div>
+
+
     </div>
 </div>
