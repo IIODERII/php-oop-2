@@ -22,10 +22,16 @@
 
     <header class='text-light'>
         <div class="container">
-            <h1>OOP - Shop</h1>
+            <h1 class='py-3'>OOP - Shop</h1>
             <ul class="nav">
                 <li class='px-2'>
                     <a href="index.php" class='btn btn-success'>Movies Page</a>
+                </li>
+                <li class='px-2'>
+                    <a href="games.php" class='btn btn-primary'>Games Page</a>
+                </li>
+                <li class='px-2'>
+                    <a href="books.php" class='btn btn-warning'>Books Page</a>
                 </li>
             </ul>
         </div>

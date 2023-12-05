@@ -5,28 +5,40 @@
             <h5 class="card-title">
                 <?= $title ?>
             </h5>
-            <p class="card-text">
-                <?= $content ?>
-            </p>
-            <div class="d-flex justify-content-between align-items-flex-start">
-                <?= $custom ?>
-                <div>
+            <?php if (isset($content)) { ?>
+                <p class="card-text">
+                    <?= $content ?>
+                </p>
+            <?php } ?>
+            <?php if (isset($custom)) { ?>
+                <div class="d-flex justify-content-between align-items-flex-start">
+                    <?= $custom ?>
                 </div>
-            </div>
+            <?php } ?>
             <div class="d-flex justify-content-between">
+                <?php if (!empty($generi)) { ?>
 
-                <ul>
-                    <?php
-                    foreach ($generi as $item) {
-                        echo "<li> $item->name</li>";
-                    }
-                    ?>
-                </ul>
-
-                <div class='w-25'>
-                    <img src="<?= $lang ?>" alt="<?= $langName ?>" class='w-100'>
-                </div>
+                    <ul>
+                        <?php
+                        foreach ($generi as $item) {
+                            echo "<li> $item->name</li>";
+                        }
+                        ?>
+                    </ul>
+                <?php } ?>
+                <?php if (!empty($lang)) { ?>
+                    <div class='w-25'>
+                        <img src="<?= $lang ?>" alt="<?= $langName ?>" class='w-100'>
+                    </div>
+                <?php } ?>
             </div>
+
+            <?php if (isset($playtime)) { ?>
+                <span class="badge text-bg-primary">
+                    <?= $playtime ?> hours played
+                </span>
+            <?php } ?>
+
             <div class='d-flex justify-content-between align-items-center pt-3'>
                 <span class="badge text-bg-success">
                     $
