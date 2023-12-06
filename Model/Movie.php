@@ -5,7 +5,7 @@ include __DIR__ . "/PrintCard.php";
 class Movie extends Product
 {
     private int $id;
-    private string $title;
+    private $title;
     private string $overview;
     private float $vote_average;
     private string $poster_path;

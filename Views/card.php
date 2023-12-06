@@ -1,9 +1,14 @@
+<?php
+if (empty($title)) {
+    throw new Exception("Parametri necessari mancanti");
+} ?>
 <div class="col-12 col-md-4 col-lg-3">
     <div class="card h-100 bg-secondary">
         <?php if (isset($image)) { ?>
             <img src="<?= $image ?>" class="card-img-top my-ratio" alt="<?= $title ?>">
         <?php } ?>
         <div class="card-body">
+
             <h5 class="card-title">
                 <?= $title ?>
             </h5>

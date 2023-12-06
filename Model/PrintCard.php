@@ -29,6 +29,7 @@ trait PrintCard
         }
         $cost = $this->cost;
         $quantity = $this->quantity;
+
         include __DIR__ . "/../Views/card.php";
     }
 }
