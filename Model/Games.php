@@ -1,33 +1,26 @@
 <?php
 
 include __DIR__ . "/Product.php";
+include __DIR__ . "/PrintCard.php";
 class Game extends Product
 {
     private int $appid;
-    private string $name;
+    private string $title;
     private int $playtime;
-    private string $image;
+    private string $poster_path;
 
 
     function __construct($id, $title, $playtime, $cost, $quantity)
     {
         $this->appid = $id;
-        $this->name = $title;
+        $this->title = $title;
         $this->playtime = $playtime;
-        $this->image = "https://cdn.cloudflare.steamstatic.com/steam/apps/$id/header.jpg";
+        $this->poster_path = "https://cdn.cloudflare.steamstatic.com/steam/apps/$id/header.jpg";
         $this->cost = $cost;
         $this->quantity = $quantity;
     }
 
-    public function printCard()
-    {
-        $image = $this->image;
-        $title = $this->name;
-        $playtime = $this->playtime;
-        $cost = $this->cost;
-        $quantity = $this->quantity;
-        include __DIR__ . "/../Views/card.php";
-    }
+    use PrintCard;
 }
 
 $gameString = file_get_contents(__DIR__ . "/games_db.json");

@@ -8,7 +8,7 @@ include __DIR__ . "/Model/Books.php";
     <div class="row gy-4">
         <?php
         foreach ($books as $book) {
-            $book->printCard();
+            $book->showCard();
         }
         ?>
     </div>

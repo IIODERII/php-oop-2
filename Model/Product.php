@@ -9,5 +9,7 @@ class Product
         $this->cost = $cost;
         $this->quantity = $quantity;
     }
+
+
 }
 ?>

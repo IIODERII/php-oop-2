@@ -1,6 +1,7 @@
 <?php
 
 include __DIR__ . "/Product.php";
+include __DIR__ . "/PrintCard.php";
 class Movie extends Product
 {
     private int $id;
@@ -54,19 +55,7 @@ class Movie extends Product
         return $template;
     }
 
-    public function printCard()
-    {
-        $image = $this->poster_path;
-        $title = $this->title;
-        $content = substr($this->overview, 0, 100) . "...";
-        $custom = $this->getVote();
-        $generi = $this->generi;
-        $lang = $this->flagPath();
-        $langName = $this->lang;
-        $cost = $this->cost;
-        $quantity = $this->quantity;
-        include __DIR__ . "/../Views/card.php";
-    }
+    use PrintCard;
 }
 
 $movieString = file_get_contents(__DIR__ . "/movie_db.json");

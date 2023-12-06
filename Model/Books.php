@@ -1,42 +1,32 @@
 <?php
 
 include __DIR__ . "/Product.php";
+include __DIR__ . "/PrintCard.php";
 class Book extends Product
 {
     private int $id;
     private string $title;
     private int $pages;
-    private string $content;
-    private string $image;
+    private string $overview;
+    private string $poster_path;
     private array $writers;
-    private array $categs;
+    private array $generi;
 
 
-    function __construct($id, $title, $pages, $content, $writers, $caths, $image, $cost, $quantity)
+    function __construct($id, $title, $pages, $overview, $writers, $generi, $image, $cost, $quantity)
     {
         $this->appid = $id;
         $this->title = $title;
         $this->pages = $pages;
-        $this->content = $content;
+        $this->overview = $overview;
         $this->writers = $writers;
-        $this->categs = $caths;
-        $this->image = $image;
+        $this->generi = $generi;
+        $this->poster_path = $image;
         $this->cost = $cost;
         $this->quantity = $quantity;
     }
 
-    public function printCard()
-    {
-        $title = $this->title;
-        $pages = $this->pages;
-        $content = substr($this->content, 0, 100) . "...";
-        $writers = $this->writers;
-        $generi = $this->categs;
-        $image = $this->image;
-        $cost = $this->cost;
-        $quantity = $this->quantity;
-        include __DIR__ . "/../Views/card.php";
-    }
+    use PrintCard;
 }
 
 $bookString = file_get_contents(__DIR__ . "/books_db.json");
